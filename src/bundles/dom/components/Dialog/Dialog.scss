@@ -1,0 +1,31 @@
+.dialog {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    overflow: hidden;
+    // 对话框根节点禁止点击
+    pointer-events: none;
+
+    .dialog-modal-mask {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        opacity: 0;
+        // 模态背景要允许点击，以禁止点击后面元素
+        pointer-events: auto;
+    }
+
+    .dialog-content {
+        position: relative;
+        width: 100%;
+        height: 100%;
+
+        &>* {
+            // 内容全部允许点击
+            pointer-events: auto;
+        }
+    }
+}

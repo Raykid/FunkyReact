@@ -1,0 +1,48 @@
+.react-layer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+}
+
+.react-mask {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    .background {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+// 下面是路由动画样式
+.animated-router-container {
+    .animated-router-forward-enter, .animated-router-backward-enter {
+        opacity: 0;
+    }
+    
+    .animated-router-forward-enter-active, .animated-router-backward-enter-active {
+        opacity: 1;
+    }
+
+    .animated-router-forward-exit, .animated-router-backward-exit {
+        opacity: 1;
+    }
+
+    .animated-router-forward-exit-active, .animated-router-backward-exit-active {
+        opacity: 0;
+    }
+
+    &.animated-router-in-transition {
+        &>div {
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: opacity 0.3s linear;
+        }
+    }
+}

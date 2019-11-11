@@ -1,0 +1,20 @@
+.second {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    .title {
+        font-size: 5rem;
+        font-weight: bold;
+    }
+
+    .button {
+        background-color: green;
+        color: white;
+        padding: 1rem;
+        cursor: pointer;
+    }
+}
