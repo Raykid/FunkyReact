@@ -5,6 +5,10 @@
     left: 0;
     top: 0;
     pointer-events: none;
+
+    &>* {
+        pointer-events: all;
+    }
 }
 
 .react-mask {
@@ -21,6 +25,8 @@
 
 // 下面是路由动画样式
 .animated-router-container {
+    @extend .react-layer;
+
     .animated-router-forward-enter, .animated-router-backward-enter {
         opacity: 0;
     }
