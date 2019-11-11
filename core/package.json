@@ -1,0 +1,40 @@
+{
+  "name": "funky-react",
+  "version": "0.1.1",
+  "description": "FunkyReact是一个可以帮助你快速搭建基于React.js的MVC框架，同时支持ReactDOM和ReactNative。数据层基于Redux抽象成Model（数据模型），支持通过装饰器将Model注入到任意class的公共变量上，不使用不初始化；界面方面，提供最基础的Scene和Dialog抽象类，可快速搭建任意路由页面或模态/非模态弹窗，其中路由Scene基于ReactRouter实现；此外还提供全局遮罩和丰富的工具集等，工具集不使用则不会占用额外体积。",
+  "main": "",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Raykid/FunkyReact.git"
+  },
+  "keywords": [
+    "React",
+    "MVC"
+  ],
+  "author": "Raykid",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Raykid/FunkyReact/issues"
+  },
+  "homepage": "https://github.com/Raykid/FunkyReact#readme",
+  "dependencies": {
+    "@types/react": "^16.9.11",
+    "@types/react-redux": "^7.1.5",
+    "@types/react-router": "^5.1.2",
+    "@types/redux": "^3.6.0",
+    "react": "^16.11.0",
+    "react-native-router-flux": "^4.0.6",
+    "react-redux": "^7.1.3",
+    "react-router": "^5.1.2",
+    "redux": "^4.0.4",
+    "tslib": "^1.10.0",
+    "typescript": "^3.7.2"
+  },
+  "devDependencies": {}
+}

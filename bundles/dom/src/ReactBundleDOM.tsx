@@ -1,10 +1,10 @@
+import IReactBundle from 'funky-react/dist/bundles/IReactBundle';
+import RouterModel from 'funky-react/dist/models/RouterModel';
+import { Inject } from 'funky-react/dist/mvc/Model';
 import { Action, createBrowserHistory, History, Location } from 'history';
 import React from 'react';
 import AnimatedRouter from 'react-animated-router';
 import { Redirect, Route, RouteProps, Router, Switch } from 'react-router';
-import RouterModel from '../../models/RouterModel';
-import { Inject } from '../../mvc/Model';
-import IReactBundle from '../IReactBundle';
 import './ReactBundleDOM.scss';
 
 export default class ReactBundleDOM implements IReactBundle
@@ -42,9 +42,11 @@ export default class ReactBundleDOM implements IReactBundle
     {
         if(routers.length === 0)
         {
-            return <AnimatedRouter>
-                <Switch></Switch>
-            </AnimatedRouter>;
+            return <Router history={this._history}>
+                <AnimatedRouter>
+                    <Switch></Switch>
+                </AnimatedRouter>
+            </Router>;
         }
         else
         {

@@ -1,4 +1,4 @@
-import { reactBundle } from 'funky-react/dist/bundles/dom/ReactBundleDOM';
+import { reactBundle } from 'funky-react-dom/dist/ReactBundleDOM';
 import App from 'funky-react/dist/mvc/App';
 import React from 'react';
 import ReactDOM from 'react-dom';

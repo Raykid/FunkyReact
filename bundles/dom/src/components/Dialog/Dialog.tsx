@@ -1,5 +1,5 @@
+import BaseDialog, { DialogProps, DialogState } from 'funky-react/dist/components/Dialog/BaseDialog';
 import React from 'react';
-import BaseDialog, { DialogProps, DialogState } from '../../../../components/Dialog/BaseDialog';
 import './Dialog.scss';
 import BackDialogPolicy from './policies/BackDialogPolicy';
 

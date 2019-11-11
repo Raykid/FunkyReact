@@ -1,5 +1,5 @@
-import { system } from '../../../../../utils/System';
-import IDialogPolicy from '../../../../../components/Dialog/IDialogPolicy';
+import IDialogPolicy from 'funky-react/dist/components/Dialog/IDialogPolicy';
+import { system } from 'funky-react/dist/utils/System';
 
 export default class BackDialogPolicy implements IDialogPolicy
 {
