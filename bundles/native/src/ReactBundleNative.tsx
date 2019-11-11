@@ -1,11 +1,11 @@
+import IReactBundle from 'funky-react/dist/bundles/IReactBundle';
+import RouterModel from 'funky-react/dist/models/RouterModel';
+import { Inject } from 'funky-react/dist/mvc/Model';
 import React from 'react';
 import { View } from 'react-native';
 import { Actions, Router, Scene } from 'react-native-router-flux';
 import { RouteProps } from 'react-router';
-import RouterModel from '../../models/RouterModel';
-import { Inject } from '../../mvc/Model';
-import { createStyleSheet, mergeStyles, Style } from '../../utils/NativeUtil';
-import IReactBundle from '../IReactBundle';
+import { createStyleSheet, mergeStyles, Style } from './utils/NativeUtil';
 
 export default class ReactBundleNative implements IReactBundle
 {

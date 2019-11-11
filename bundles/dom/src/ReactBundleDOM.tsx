@@ -1,7 +1,7 @@
 import IReactBundle from 'funky-react/dist/bundles/IReactBundle';
 import RouterModel from 'funky-react/dist/models/RouterModel';
 import { Inject } from 'funky-react/dist/mvc/Model';
-import { Action, createBrowserHistory, History, Location } from 'history';
+import { Action, createHashHistory, History, Location } from 'history';
 import React from 'react';
 import AnimatedRouter from 'react-animated-router';
 import { Redirect, Route, RouteProps, Router, Switch } from 'react-router';
@@ -14,9 +14,9 @@ export default class ReactBundleDOM implements IReactBundle
 
     private _history:History;
 
-    public constructor()
+    public constructor(history?:History)
     {
-        this._history = createBrowserHistory();
+        this._history = history || createHashHistory();
         this._history.listen((location:Location, action:Action)=>{
             this._routerModel.updateRoutes(this.routeCount, this.curRoutePath);
         });

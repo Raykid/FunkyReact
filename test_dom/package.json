@@ -4,7 +4,7 @@
   "description": "",
   "main": "",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "webpack-dev-server --inline --progress --config ./webpack.config.js"
   },
   "author": "Raykid",
   "license": "ISC",
@@ -26,6 +26,6 @@
   },
   "dependencies": {
     "funky-react": "^0.1.1",
-    "funky-react-dom": "^0.1.0"
+    "funky-react-dom": "^0.1.1"
   }
 }

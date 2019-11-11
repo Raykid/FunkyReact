@@ -1,7 +1,7 @@
+import Mediator from 'funky-react/dist/mvc/Mediator';
+import { system } from 'funky-react/dist/utils/System';
 import React from 'react';
 import { GestureResponderEvent, TouchableHighlight, TouchableHighlightProps, TouchableNativeFeedback, TouchableNativeFeedbackProps, TouchableOpacity, TouchableOpacityProps, TouchableWithoutFeedback, TouchableWithoutFeedbackProps } from 'react-native';
-import Mediator from '../../../../mvc/Mediator';
-import { system } from '../../../../utils/System';
 
 export interface ButtonProps<P extends TouchableWithoutFeedbackProps> extends TouchableWithoutFeedbackProps
 {

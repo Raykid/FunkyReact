@@ -14,10 +14,10 @@
     "outDir": "./dist/",
     "lib": [
       "es2017",
-      "dom"
     ]
   },
   "include": [
+    "index.tsx",
     "src",
   ],
   "exclude": [
