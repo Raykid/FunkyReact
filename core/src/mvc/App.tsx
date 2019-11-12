@@ -4,7 +4,7 @@ import { AnyAction, createStore } from 'redux';
 import IReactBundle from '../bundles/IReactBundle';
 import ReactRouter, { ReactRouterProps } from '../router/ReactRouter';
 import { getModelName, modelDict } from './Model';
-import { mvc } from './MVC';
+import { IApp, mvc, setCurApp } from './MVC';
 
 interface LayerProps
 {
@@ -56,19 +56,6 @@ class Layer extends React.Component<LayerProps, LayerState>
     }
 }
 
-let curApp:App;
-/**
- * 获取当前app引用
- *
- * @author Raykid
- * @export
- * @returns {App}
- */
-export function getCurApp():App
-{
-    return curApp;
-}
-
 /**
  * App组件为最外层高阶组件，包装了redux的Provider作为数据提供商，以及ReactRouter组件作为router实现
  *
@@ -77,7 +64,7 @@ export function getCurApp():App
  * @class App
  * @extends {React.Component<ReactRouterProps>}
  */
-export default class App extends React.Component<ReactRouterProps>
+export default class App extends React.Component<ReactRouterProps> implements IApp
 {
     private static _initialized:boolean = false;
 
@@ -111,7 +98,7 @@ export default class App extends React.Component<ReactRouterProps>
     public constructor(props:ReactRouterProps)
     {
         super(props);
-        curApp = this;
+        setCurApp(this);
         if(!App._initialized)
         {
             console.warn("建议在渲染App之前先执行App.initialize()方法");

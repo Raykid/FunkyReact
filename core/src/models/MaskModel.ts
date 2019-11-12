@@ -1,7 +1,7 @@
 import { AnyAction } from 'redux';
 import ICancelable, { createICancelable } from '../interfaces/ICancelable';
-import App, { getCurApp } from '../mvc/App';
 import Model, { ModelClass } from '../mvc/Model';
+import { getCurApp, IApp } from '../mvc/MVC';
 
 interface MaskData
 {
@@ -66,7 +66,7 @@ export default class MaskModel extends Model<MaskState>
     private updateMasks():void
     {
         // 更新app
-        const app:App = getCurApp();
+        const app:IApp = getCurApp();
         if(app)
         {
             if(this._maskDataStack.length > 0)
