@@ -1,7 +1,7 @@
 import BaseDialog, { DialogProps, DialogState } from 'funky-react/dist/components/Dialog/BaseDialog';
 import React from 'react';
 import { LayoutAnimation, View } from 'react-native';
-import { createStyleSheet, Style } from '../../utils/NativeUtil';
+import { createStyleSheet, Style } from 'react-native-visitor/ReactNativeVisitor';
 
 export default class Dialog<P extends DialogProps = DialogProps, S extends DialogState = DialogState> extends BaseDialog<P, S>
 {

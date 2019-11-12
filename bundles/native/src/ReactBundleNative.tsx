@@ -4,8 +4,8 @@ import { Inject } from 'funky-react/dist/mvc/Model';
 import React from 'react';
 import { View } from 'react-native';
 import { Actions, Router, Scene } from 'react-native-router-flux';
+import { createStyleSheet, mergeStyles, Style } from 'react-native-visitor/ReactNativeVisitor';
 import { RouteProps } from 'react-router';
-import { createStyleSheet, mergeStyles, Style } from './utils/NativeUtil';
 
 export default class ReactBundleNative implements IReactBundle
 {
