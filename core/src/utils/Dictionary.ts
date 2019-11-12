@@ -124,7 +124,6 @@ export default class Dictionary<K, V>
      * 克隆一个字典
      *
      * @author Raykid
-     * @date 2019-11-07
      * @returns {Dictionary<K, V>}
      * @memberof Dictionary
      */

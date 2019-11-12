@@ -2,7 +2,6 @@
  * 去除字符串首尾空格
  *
  * @author Raykid
- * @date 2019-10-30
  * @export
  * @param {string} str
  * @returns {string}

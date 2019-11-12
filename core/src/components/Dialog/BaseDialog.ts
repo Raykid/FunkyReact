@@ -60,7 +60,6 @@ export default class BaseDialog<P extends DialogProps = DialogProps, S extends D
      * 打开弹窗
      *
      * @author Raykid
-     * @date 2019-08-06
      * @returns {Promise<void>}
      * @memberof BaseDialog
      */
@@ -93,7 +92,6 @@ export default class BaseDialog<P extends DialogProps = DialogProps, S extends D
      * 关闭弹窗
      *
      * @author Raykid
-     * @date 2019-08-06
      * @returns {Promise<void>}
      * @memberof BaseDialog
      */

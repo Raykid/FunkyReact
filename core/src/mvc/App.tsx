@@ -31,7 +31,6 @@ class Layer extends React.Component<LayerProps, LayerState>
      * 更新内容
      *
      * @author Raykid
-     * @date 2019-10-10
      * @param {React.ReactNode} children
      * @returns {Promise<void>}
      * @memberof Layer
@@ -62,7 +61,6 @@ let curApp:App;
  * 获取当前app引用
  *
  * @author Raykid
- * @date 2019-10-10
  * @export
  * @returns {App}
  */
@@ -75,7 +73,6 @@ export function getCurApp():App
  * App组件为最外层高阶组件，包装了redux的Provider作为数据提供商，以及ReactRouter组件作为router实现
  *
  * @author Raykid
- * @date 2019-08-10
  * @export
  * @class App
  * @extends {React.Component<ReactRouterProps>}
@@ -106,7 +103,7 @@ export default class App extends React.Component<ReactRouterProps>
                 return hasChange ? newResult : state;
             }/*, composeWithDevTools(applyMiddleware(
                 createLogger({collapsed: true, diff: true})
-            ))*/);// 这里暂时把Logger注释掉了，因为它太卡了
+            ))*/);
             App._initialized = true;
         }
     }
@@ -129,7 +126,6 @@ export default class App extends React.Component<ReactRouterProps>
      * 更新弹窗
      *
      * @author Raykid
-     * @date 2019-10-10
      * @param {React.ReactNode[]} dialogs 弹窗列表
      * @returns {Promise<void>}
      * @memberof App
@@ -143,7 +139,6 @@ export default class App extends React.Component<ReactRouterProps>
      * 更新遮罩
      *
      * @author Raykid
-     * @date 2019-10-10
      * @param {boolean} shown 是否显示遮罩
      * @param {number} [alpha=0] 遮罩透明度，范围[0, 1]
      * @param {React.ReactNode} [children] 子对象

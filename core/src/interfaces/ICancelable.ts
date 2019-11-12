@@ -12,7 +12,6 @@ export default interface ICancelable<T = any> extends Promise<T>
      * 调用即取消
      *
      * @author Raykid
-     * @date 2019-08-30
      * @returns {T}
      * @memberof ICancelable
      */
@@ -23,7 +22,6 @@ export default interface ICancelable<T = any> extends Promise<T>
  * 创建一个可取消对象
  *
  * @author Raykid
- * @date 2019-08-30
  * @export
  * @template T
  * @param {()=>T} handler

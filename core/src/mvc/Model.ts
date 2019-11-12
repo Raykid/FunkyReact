@@ -7,7 +7,6 @@ import { mvc } from './MVC';
  * 数据模型基类
  *
  * @author Raykid
- * @date 2019-08-10
  * @export
  * @class Model
  */
@@ -35,7 +34,6 @@ export default abstract class Model<S = any>
      * 处理Action
      *
      * @author Raykid
-     * @date 2019-08-10
      * @abstract
      * @param {Readonly<S>} state 之前的状态，不允许被直接修改
      * @param {AnyAction} action 动作
@@ -72,7 +70,6 @@ function ensureInitModel(target:Model<any>):void
  * 获取注入的Model
  *
  * @author Raykid
- * @date 2019-09-05
  * @export
  * @template S
  * @template T
@@ -100,7 +97,6 @@ export function getInject<S, T extends Model<S>>(cls:{new ():T}):T
  * Model类型装饰器
  *
  * @author Raykid
- * @date 2019-08-12
  * @export
  * @param {*} cls
  */
@@ -115,7 +111,6 @@ export function ModelClass(cls:any):void
  * 依赖注入装饰器，可注入Model
  *
  * @author Raykid
- * @date 2019-08-12
  * @export
  * @param {*} prototype
  * @param {string} propertyKey

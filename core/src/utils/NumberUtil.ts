@@ -2,7 +2,6 @@
  * 将数字变为指定长度的字符串，如果数字长度不够则在前方加0以填充长度，如果数字超长则使用原始长度
  *
  * @author Raykid
- * @date 2019-04-11
  * @export
  * @param {number} num 数字
  * @param {number} [len=1] 长度，默认是1
@@ -46,7 +45,6 @@ const chineseDict:{[num:number]:string} = {
  * 将数字变为中文数字形式，暂时只支持一位正整数
  *
  * @author Raykid
- * @date 2019-09-24
  * @export
  * @param {number} num
  * @returns {string}

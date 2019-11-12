@@ -180,7 +180,6 @@ export default class System
      * 等待指定毫秒后resolve
      *
      * @author Raykid
-     * @date 2019-05-31
      * @param {number} duration 要等待的毫秒数
      * @returns {ICancelable} 支持cancel操作
      * @memberof System

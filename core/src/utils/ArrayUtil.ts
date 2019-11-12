@@ -123,7 +123,6 @@ export function unique(list:any[]):any[]
  * 判断两个数组内容是否相等
  *
  * @author Raykid
- * @date 2019-08-15
  * @export
  * @param {any[]} a
  * @param {any[]} b

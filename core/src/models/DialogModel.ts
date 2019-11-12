@@ -5,7 +5,7 @@ import ICancelable, { createICancelable } from '../interfaces/ICancelable';
 import { getCurApp } from '../mvc/App';
 import Model, { Inject, ModelClass } from '../mvc/Model';
 import Dictionary from '../utils/Dictionary';
-import { createReactNode } from '../utils/ReactNodeCreator';
+import { createReactNode } from '../utils/ReactUtil';
 import MaskModel from './MaskModel';
 
 interface DialogState
@@ -58,7 +58,6 @@ export default class DialogModel extends Model<DialogState>
      * 显示一个弹窗
      *
      * @author Raykid
-     * @date 2019-10-10
      * @template P
      * @param {{new(props:P):BaseDialog<P>}} cls 弹窗类型
      * @param {P} [props={} as P] 弹窗参数

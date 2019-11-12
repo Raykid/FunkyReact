@@ -5,7 +5,6 @@ import { RouteProps } from 'react-router';
  * 这个接口负责统一DOM和Native两个渲染引擎的差异
  *
  * @author Raykid
- * @date 2019-10-10
  * @export
  * @interface IReactBundle
  */
@@ -15,7 +14,6 @@ export default interface IReactBundle
      * 创建一个层容器，要确保脱离文档流、覆盖全屏、不可点击
      *
      * @author Raykid
-     * @date 2019-10-10
      * @param {React.ReactNode} [children] 层中对象
      * @returns {React.ReactNode}
      * @memberof IReactBundle
@@ -26,7 +24,6 @@ export default interface IReactBundle
      * 创建一个遮罩
      *
      * @author Raykid
-     * @date 2019-10-10
      * @param {number} alpha 遮罩透明度，范围是[0, 1]
      * @param {React.ReactNode} [children] 遮罩内要显示的对象
      * @returns {React.ReactNode}
@@ -38,7 +35,6 @@ export default interface IReactBundle
      * 将路由表翻译为可显示的React节点
      *
      * @author Raykid
-     * @date 2019-08-08
      * @param {RouteProps[]} routers 路由表数据
      * @returns {React.ReactNode}
      * @memberof IReactBundle
@@ -65,7 +61,6 @@ export default interface IReactBundle
      * 推入路由
      *
      * @author Raykid
-     * @date 2019-08-08
      * @template P
      * @param {string} path
      * @param {P} [props]
@@ -77,7 +72,6 @@ export default interface IReactBundle
      * 弹出路由
      *
      * @author Raykid
-     * @date 2019-08-08
      * @param {number} count 弹出的路由个数
      * @memberof IReactBundle
      */
@@ -87,7 +81,6 @@ export default interface IReactBundle
      * 替换路由
      *
      * @author Raykid
-     * @date 2019-09-16
      * @template P
      * @param {string} path
      * @param {P} [props]

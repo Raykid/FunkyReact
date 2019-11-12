@@ -5,7 +5,6 @@ import resolveAssetSource from 'react-native/Libraries/Image/resolveAssetSource'
  * 获取静态import进来的资源的实际路径
  *
  * @author Raykid
- * @date 2019-10-23
  * @export
  * @param {number} assetsId import进来的资源id
  * @returns {string}

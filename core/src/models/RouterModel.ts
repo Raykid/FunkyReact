@@ -43,7 +43,6 @@ export default class RouterModel extends Model<RouterState>
      * 更新路由数据
      *
      * @author Raykid
-     * @date 2019-09-17
      * @param {number} count
      * @memberof RouterModel
      */
@@ -62,7 +61,6 @@ export default class RouterModel extends Model<RouterState>
      * 监听路由数据变化
      *
      * @author Raykid
-     * @date 2019-09-17
      * @param {(fromPath:string, toPath:string)=>void} handler
      * @returns {ICancelable}
      * @memberof RouterModel

@@ -35,7 +35,6 @@ export default class Button<P extends TouchableWithoutFeedbackProps> extends Med
      * 添加一个公共冷却延时
      *
      * @author Raykid
-     * @date 2019-11-08
      * @static
      * @param {number} duration
      * @returns {Promise<void>}

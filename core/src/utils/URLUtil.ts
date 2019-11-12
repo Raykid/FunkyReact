@@ -38,7 +38,6 @@ const regHTTPPath:RegExp = /^https?:/;
  * 判断url是否是HTTP远程路径
  *
  * @author Raykid
- * @date 2019-11-01
  * @export
  * @param {string} url
  * @returns {boolean}

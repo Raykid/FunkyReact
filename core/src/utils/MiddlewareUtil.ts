@@ -2,7 +2,6 @@
  * 中间件接口
  *
  * @author Raykid
- * @date 2019-06-17
  * @export
  * @interface IMiddleware
  * @template T 上下文类型
@@ -17,7 +16,6 @@ export interface IMiddleware<T = any, P = any>
  * 执行中间件流程
  *
  * @author Raykid
- * @date 2019-06-17
  * @export
  * @template T 上下文类型
  * @template P 中间件返回值类型
@@ -86,7 +84,6 @@ export async function runMiddlewares<T = any, P = any>(middlewares:IMiddleware<T
  * 合并包装一个中间件执行方法
  *
  * @author Raykid
- * @date 2019-06-17
  * @export
  * @template T 上下文类型
  * @template P 中间件返回值类型
@@ -108,7 +105,6 @@ export function combineMiddlewares<T = any, P = any>(middlewares:IMiddleware<T, 
  * 将所有中间件打平
  *
  * @author Raykid
- * @date 2019-06-18
  * @export
  * @template T 上下文类型
  * @template P 中间件返回值类型
@@ -139,7 +135,6 @@ export function flattenMiddlewares<T = any, P = any>(middlewares:IMiddleware<T, 
  * 将所有中间件打平并合并成一个中间件执行器
  *
  * @author Raykid
- * @date 2019-06-18
  * @export
  * @template T 上下文类型
  * @template P 中间件返回值类型

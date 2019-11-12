@@ -60,7 +60,6 @@ export function cloneObject<T = any>(target:T, deep:boolean=false):T
  * 递归混合属性
  *
  * @author Raykid
- * @date 2019-06-21
  * @export
  * @param {*} target 目标
  * @param {...any[]} sources 来源数组

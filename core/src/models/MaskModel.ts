@@ -85,7 +85,6 @@ export default class MaskModel extends Model<MaskState>
      * 显示遮罩层
      *
      * @author Raykid
-     * @date 2019-09-06
      * @param {number} [alpha=0] 遮罩透明度，范围是[0, 1]，默认是0
      * @param {React.ReactNode} [children] 可以添加子对象
      * @returns {ICancelable}
@@ -128,7 +127,6 @@ export default class MaskModel extends Model<MaskState>
      * 隐藏所有遮罩
      *
      * @author Raykid
-     * @date 2019-10-11
      * @memberof MaskModel
      */
     public hideAll():void

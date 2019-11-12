@@ -45,7 +45,6 @@ interface ReactRouterState
  * 将此类作为渲染根组件
  *
  * @author Raykid
- * @date 2019-08-03
  * @export
  * @class ReactRouter
  * @extends {React.Component<{}, {routers:RouteProps[]}>}
@@ -87,7 +86,6 @@ export type ReactRouteClass<P = {}, S = React.ComponentState> = React.ComponentC
  * 记录React路由的装饰器
  *
  * @author Raykid
- * @date 2019-08-03
  * @export
  * @param {ReactRouteData} data 路由数据
  * @returns {ClassDecorator}
@@ -122,7 +120,6 @@ export function ReactRoute(data:ReactRouteData):ClassDecorator
  * 监听Routers变化
  *
  * @author Raykid
- * @date 2019-08-05
  * @export
  * @param {(routers:RouteProps[])=>void} handler
  * @param {*} [thisArg]
@@ -136,7 +133,6 @@ export function listenRoutersChange(handler:(routers:RouteProps[])=>void, thisAr
  * 取消监听Routers变化
  *
  * @author Raykid
- * @date 2019-08-05
  * @export
  * @param {(routers:RouteProps[])=>void} handler
  * @param {*} [thisArg]
@@ -159,7 +155,6 @@ export function unlistenRoutersChange(handler:(routers:RouteProps[])=>void, this
  * 获取当前路由数量
  *
  * @author Raykid
- * @date 2019-09-17
  * @export
  * @returns {number}
  */
@@ -172,7 +167,6 @@ export function getRouteCount():number
  * 推入路由模块
  *
  * @author Raykid
- * @date 2019-08-03
  * @export
  * @template P
  * @template S
@@ -200,7 +194,6 @@ export async function pushRoute<P = {}, S = React.ComponentState>(route:ReactRou
  * 弹出顶端路由模块
  *
  * @author Raykid
- * @date 2019-08-08
  * @export
  * @param {number} [count=1] 弹出的路由个数，如果是负数，则表示从前往后的索引数，例如-1表示跳转到第1个路由处。默认为1
  * @returns {Promise<void>}
@@ -234,7 +227,6 @@ export async function popRoute(count:number=1):Promise<void>
  * 替换路由模块
  *
  * @author Raykid
- * @date 2019-09-16
  * @export
  * @template P
  * @template S

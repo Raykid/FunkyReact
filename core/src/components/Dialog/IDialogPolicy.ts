@@ -4,7 +4,6 @@ export default interface IDialogPolicy
      * 弹出动画
      *
      * @author Raykid
-     * @date 2019-08-06
      * @param {Element} dialog 弹窗实体
      * @returns {Promise<void>}
      * @memberof IDialogPolicy
@@ -15,7 +14,6 @@ export default interface IDialogPolicy
      * 关闭动画
      *
      * @author Raykid
-     * @date 2019-08-06
      * @param {Element} dialog 弹窗实体
      * @returns {Promise<void>}
      * @memberof IDialogPolicy

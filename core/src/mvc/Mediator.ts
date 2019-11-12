@@ -9,7 +9,6 @@ import { mvc } from './MVC';
  * 中介者基类
  *
  * @author Raykid
- * @date 2019-08-12
  * @export
  * @class Mediator
  * @extends {React.Component<P, S, SS>}
@@ -46,7 +45,6 @@ export default class Mediator<P = {}, S = {}, SS = any> extends React.Component<
      * 该方法为setState的包装方法，将之前同步执行的方式包装为异步执行
      *
      * @author Raykid
-     * @date 2019-08-14
      * @protected
      * @template K
      * @param {(((prevState: Readonly<S>, props: Readonly<P>) => (Pick<S, K> | S | null)) | (Pick<S, K> | S | null))} state
@@ -73,7 +71,6 @@ export default class Mediator<P = {}, S = {}, SS = any> extends React.Component<
      * 重写setState方法，增加浅表对比，如果各项都相同则不进行更新
      *
      * @author Raykid
-     * @date 2019-11-04
      * @template K
      * @param {(((prevState: Readonly<S>, props: Readonly<P>) => (Pick<S, K> | S | null)) | (Pick<S, K> | S | null))} state
      * @param {() => void} [callback]
@@ -130,7 +127,6 @@ export default class Mediator<P = {}, S = {}, SS = any> extends React.Component<
      * 托管可取消对象
      *
      * @author Raykid
-     * @date 2019-09-06
      * @param {ICancelable} cancelable
      * @memberof Mediator
      */
@@ -231,7 +227,6 @@ export default class Mediator<P = {}, S = {}, SS = any> extends React.Component<
  * 无参数组件装饰器
  *
  * @author Raykid
- * @date 2019-08-10
  * @export
  * @param {typeof React.Component} prototype
  */
@@ -240,7 +235,6 @@ export function MediatorClass(prototype:typeof React.Component):any;
  * 参数化组件装饰器
  *
  * @author Raykid
- * @date 2019-08-10
  * @export
  * @param {ReactRouteData} route 路由数据
  * @returns {ClassDecorator}
