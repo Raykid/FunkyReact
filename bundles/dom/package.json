@@ -27,7 +27,7 @@
   "dependencies": {
     "@types/react-dom": "^16.9.4",
     "@types/react-transition-group": "^4.2.3",
-    "funky-react": "^0.1.1",
+    "funky-react": "^0.1.2",
     "react-animated-router": "^0.2.2",
     "react-dom": "^16.11.0",
     "react-transition-group": "^4.3.0"
