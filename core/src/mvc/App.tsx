@@ -140,8 +140,11 @@ export default class App extends React.Component<ReactRouterProps> implements IA
     public render():React.ReactNode
     {
         return <Provider store={mvc.store}>
-            {/* 场景层，用ReactRouter实现 */}
-            <ReactRouter {...this.props}/>
+            {/* 场景层 */}
+            <Layer bundle={this.props.bundle}>
+                {/* 内部用ReactRouter实现 */}
+                <ReactRouter {...this.props}/>
+            </Layer>
             {/* 弹窗层 */}
             <Layer ref={ref=>this._dialogLayer = ref} bundle={this.props.bundle}/>
             {/* 遮罩层 */}
