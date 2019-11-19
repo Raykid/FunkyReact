@@ -1,10 +1,11 @@
 import { ButtonOpacity } from 'funky-react-native/dist/components/Button/Button';
-import { createStyleSheet, getPixel, Style } from 'funky-react-native/dist/utils/NativeUtil';
+import { getPixel } from 'funky-react-native/dist/utils/NativeUtil';
 import BaseScene from 'funky-react/dist/components/Scene/BaseScene';
 import { MediatorClass } from 'funky-react/dist/mvc/Mediator';
 import { popRoute } from 'funky-react/dist/router/ReactRouter';
 import React from 'react';
 import { SafeAreaView, StatusBar, Text } from 'react-native';
+import { createStyleSheet, Style } from 'react-native-visitor';
 
 @MediatorClass("/second")
 export default class Second extends BaseScene
