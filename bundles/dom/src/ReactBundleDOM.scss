@@ -25,7 +25,9 @@
 
 // 下面是路由动画样式
 .animated-router-container {
-    @extend .react-layer;
+    position: relative;
+    width: 100%;
+    height: 100%;
 
     .animated-router-forward-enter, .animated-router-backward-enter {
         opacity: 0;
