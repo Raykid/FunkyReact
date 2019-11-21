@@ -35,8 +35,10 @@ export interface DialogState
     policy:IDialogPolicy;
 }
 
-export default class BaseDialog<P extends DialogProps = DialogProps, S extends DialogState = DialogState> extends Mediator<P, S>
+export default class BaseDialog<P extends DialogProps = DialogProps, S extends DialogState = DialogState, CD = void> extends Mediator<P, S>
 {
+    private _closeData:CD;
+
     public get shown():boolean
     {
         return this.state.show;
@@ -51,7 +53,7 @@ export default class BaseDialog<P extends DialogProps = DialogProps, S extends D
         } as S & DialogState;
     }
 
-    public onOpen(context:any, next:()=>Promise<void>):void|Promise<void>
+    public onOpen(context:P, next:()=>Promise<void>):void|Promise<void>
     {
         // 留待子类完善
     }
@@ -79,11 +81,11 @@ export default class BaseDialog<P extends DialogProps = DialogProps, S extends D
                     // 调用Policy
                     this.state.policy && this.state.policy.open && await this.state.policy.open(this.refs.content as Element);
                 }
-            ]);
+            ], this.props);
         }
     }
 
-    public onClose(context:any, next:()=>Promise<void>):void|Promise<void>
+    public onClose(context:CD, next:()=>Promise<void>):void|Promise<void>
     {
         // 留待子类完善
     }
@@ -92,26 +94,34 @@ export default class BaseDialog<P extends DialogProps = DialogProps, S extends D
      * 关闭弹窗
      *
      * @author Raykid
-     * @returns {Promise<void>}
+     * @param {CD} [data] 关闭参数
+     * @returns {Promise<CD>}
      * @memberof BaseDialog
      */
-    public async close():Promise<void>
+    public async close(data?:CD):Promise<CD>
     {
         if(this.state.show)
         {
+            this._closeData = data;
             // 运行中间件
-            await runMiddlewares([
-                this.props.onClose,
-                (context, next)=>this.onClose(context, next),
-                async ()=>{
-                    // 调用Policy
-                    this.state.policy && this.state.policy.close && await this.state.policy.close(this.refs.content as Element);
-                    // 设置关闭
-                    await this.syncState({
-                        show: false
-                    });
-                }
-            ]);
+            try
+            {
+                await runMiddlewares([
+                    this.props.onClose,
+                    (context, next)=>this.onClose(context, next),
+                    async ()=>{
+                        // 调用Policy
+                        this.state.policy && this.state.policy.close && await this.state.policy.close(this.refs.content as Element);
+                        // 设置关闭
+                        await this.syncState({
+                            show: false
+                        });
+                    }
+                ], data);
+            }
+            catch(err)
+            {}
         }
+        return this._closeData;
     }
 }

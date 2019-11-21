@@ -3,7 +3,7 @@ import React from 'react';
 import './Dialog.scss';
 import BackDialogPolicy from './policies/BackDialogPolicy';
 
-export default class Dialog<P extends DialogProps = DialogProps, S extends DialogState = DialogState> extends BaseDialog<P, S>
+export default class Dialog<P extends DialogProps = DialogProps, S extends DialogState = DialogState, CD = void> extends BaseDialog<P, S, CD>
 {
     public componentDidMount():void
     {

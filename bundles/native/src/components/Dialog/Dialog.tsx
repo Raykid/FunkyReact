@@ -3,7 +3,7 @@ import React from 'react';
 import { LayoutAnimation, View } from 'react-native';
 import { createStyleSheet, Style } from 'react-native-visitor/ReactNativeVisitor';
 
-export default class Dialog<P extends DialogProps = DialogProps, S extends DialogState = DialogState> extends BaseDialog<P, S>
+export default class Dialog<P extends DialogProps = DialogProps, S extends DialogState = DialogState, CD = void> extends BaseDialog<P, S, CD>
 {
     protected onRender():React.ReactNode
     {
