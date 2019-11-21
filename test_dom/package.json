@@ -25,7 +25,7 @@
     "webpack-dev-server": "^3.9.0"
   },
   "dependencies": {
-    "funky-react": "^0.1.7",
-    "funky-react-dom": "^0.1.8"
+    "funky-react": "^0.1.8",
+    "funky-react-dom": "^0.1.9"
   }
 }
