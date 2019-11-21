@@ -108,7 +108,7 @@ export default class DialogModel extends Model<DialogState>
         });
         const key:{node:React.ReactNode} = { node };
         let closeData:CD;
-        const cancel:ICancelable<any> = createICancelable(()=>{
+        const cancel:ICancelable<CD> = createICancelable<CD>(()=>{
             cancelMask.cancel();
             dialog.close(closeData);
             return closeData;
