@@ -150,7 +150,7 @@ export default class Mediator<P = {}, S = {}, SS = any> extends React.Component<
                     this._cancelables.push(cancelable);
                     // 如果提前被cancel了，则移除之，防止销毁时列表过长
                     cancelable.then(()=>{
-                        const index:number = this._cancelables.indexOf(cancelable);
+                        const index:number = this._cancelables && this._cancelables.indexOf(cancelable);
                         if(index >= 0)
                         {
                             this._cancelables.splice(index, 1);
