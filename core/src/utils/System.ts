@@ -171,7 +171,7 @@ export default class System
                 // 触发回调
                 handler.apply(thisArg, args);
                 // 精确计算lastTime
-                lastTime = this._timer - (delta - duration);
+                lastTime = this._timer - (delta % duration);
             }
         }
     }
