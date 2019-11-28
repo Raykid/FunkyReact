@@ -128,9 +128,10 @@ export default class Mediator<P = {}, S = {}, SS = any> extends React.Component<
      *
      * @author Raykid
      * @param {ICancelable} cancelable
+     * @returns {ICancelable} 将被托管的对象再返回回来
      * @memberof Mediator
      */
-    public delegateCancelable(cancelable:ICancelable):void
+    public delegateCancelable(cancelable:ICancelable):ICancelable
     {
         if(!cancelable.canceled)
         {
@@ -150,7 +151,7 @@ export default class Mediator<P = {}, S = {}, SS = any> extends React.Component<
                     this._cancelables.push(cancelable);
                     // 如果提前被cancel了，则移除之，防止销毁时列表过长
                     cancelable.then(()=>{
-                        const index:number = this._cancelables ? this._cancelables.indexOf(cancelable) : -1;
+                        const index:number = this._cancelables.indexOf(cancelable);
                         if(index >= 0)
                         {
                             this._cancelables.splice(index, 1);
@@ -159,6 +160,7 @@ export default class Mediator<P = {}, S = {}, SS = any> extends React.Component<
                 }
             }
         }
+        return cancelable;
     }
 
     public componentWillMount():void
