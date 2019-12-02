@@ -1,0 +1,42 @@
+.test-dialog {
+    position: absolute;
+    left: calc(50% - 10rem);
+    top: calc(50% - 6.18rem);
+    width: 20rem;
+    height: 12.36rem;
+    background-color: white;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .button {
+        height: 2rem;
+        line-height: 2rem;
+        text-align: center;
+        color: white;
+        background-color: green;
+        border-radius: 1rem;
+        margin: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s;
+
+        &:active {
+            background-color: palegreen;
+        }
+    }
+
+    .close-button {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 1.5rem;
+        height: 1.5rem;
+        line-height: 1.5rem;
+        text-align: center;
+        color: white;
+        background-color: red;
+        border-radius: 0.5rem;
+        cursor: pointer;
+    }
+}

@@ -1,0 +1,35 @@
+{
+  "name": "funky-react-cli",
+  "version": "0.1.0",
+  "description": "FunkyReact框架的cli工具，可以快速创建基于FunkyReact的初始化工程",
+  "bin": {
+    "funky-react-cli": "bin.js"
+  },
+  "files": [
+    "templates/**/*",
+    "bin.js"
+  ],
+  "scripts": {
+    "init-dom": "node ./bin.js init --bundle dom",
+    "init-native": "node ./bin.js init --bundle native"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Raykid/FunkyReact.git"
+  },
+  "keywords": [
+    "Funky",
+    "React",
+    "cli"
+  ],
+  "author": "Raykid",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Raykid/FunkyReact/issues"
+  },
+  "homepage": "https://github.com/Raykid/FunkyReact#readme",
+  "dependencies": {
+    "copy": "^0.3.2",
+    "npm": "^6.13.1"
+  }
+}
