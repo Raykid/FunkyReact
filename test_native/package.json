@@ -10,8 +10,8 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "funky-react": "^0.1.8",
-    "funky-react-native": "^0.1.6"
+    "funky-react": "^1.0.2",
+    "funky-react-native": "^1.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.6.2",

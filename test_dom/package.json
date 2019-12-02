@@ -4,7 +4,7 @@
   "description": "",
   "main": "",
   "scripts": {
-    "dev": "webpack-dev-server --inline --progress --config ./webpack.config.js"
+    "start": "webpack-dev-server --inline --progress --config ./webpack.config.js"
   },
   "author": "Raykid",
   "license": "ISC",
@@ -25,7 +25,7 @@
     "webpack-dev-server": "^3.9.0"
   },
   "dependencies": {
-    "funky-react": "^0.1.8",
-    "funky-react-dom": "^0.1.9"
+    "funky-react": "^1.0.2",
+    "funky-react-dom": "^1.0.1"
   }
 }
