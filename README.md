@@ -1,2 +1,2 @@
-# FunkyReact
+# [FunkyReact](https://github.com/Raykid/FunkyReact) &middot; [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/Raykid/FunkyReact/blob/master/LICENSE) [![npm version](https://img.shields.io/npm/v/funky-react.svg?style=flat)](https://www.npmjs.com/package/funky-react) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/Raykid/FunkyReact/pulls)
 FunkyReact是一个可以帮助你快速搭建基于React.js的MVC框架，同时支持ReactDOM和ReactNative。数据层基于Redux抽象成Model（数据模型），支持通过装饰器将Model注入到任意class的公共变量上，不使用不初始化；界面方面，提供最基础的Scene和Dialog抽象类，可快速搭建任意路由页面或模态/非模态弹窗，其中路由Scene基于ReactRouter实现；此外还提供全局遮罩和丰富的工具集等，工具集不使用则不会占用额外体积。
