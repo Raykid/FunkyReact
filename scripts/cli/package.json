@@ -1,6 +1,6 @@
 {
   "name": "funky-react-cli",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "FunkyReact框架的cli工具，可以快速创建基于FunkyReact的初始化工程",
   "bin": {
     "funky-react-cli": "bin.js"
