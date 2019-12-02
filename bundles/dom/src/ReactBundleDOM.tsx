@@ -83,7 +83,7 @@ export default class ReactBundleDOM implements IReactBundle
 
     public get routeCount():number
     {
-        return this._history.length;
+        return this._history["entries"].indexOf(this._history.location) + 1;
     }
 
     public get curRoutePath():string

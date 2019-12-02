@@ -1,6 +1,6 @@
 {
   "name": "funky-react-native",
-  "version": "0.1.7",
+  "version": "1.0.1",
   "description": "FunkyReact是一个可以帮助你快速搭建基于React.js的MVC框架，同时支持ReactDOM和ReactNative。数据层基于Redux抽象成Model（数据模型），支持通过装饰器将Model注入到任意class的公共变量上，不使用不初始化；界面方面，提供最基础的Scene和Dialog抽象类，可快速搭建任意路由页面或模态/非模态弹窗，其中路由Scene基于ReactRouter实现；此外还提供全局遮罩和丰富的工具集等，工具集不使用则不会占用额外体积。",
   "main": "",
   "files": [
@@ -25,9 +25,9 @@
   },
   "homepage": "https://github.com/Raykid/FunkyReact#readme",
   "dependencies": {
-    "@types/react-native": "^0.60.22",
-    "funky-react": "^0.1.9",
-    "react-native": "^0.61.4",
+    "@types/react-native": "^0.60.23",
+    "funky-react": "^1.0.2",
+    "react-native": "^0.61.5",
     "react-native-router-flux": "^4.0.6",
     "react-native-visitor": "^1.0.3"
   }
