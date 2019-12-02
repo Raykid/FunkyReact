@@ -6,7 +6,7 @@ import { pushRoute } from 'funky-react/dist/router/ReactRouter';
 import React from 'react';
 import TopBar from '../../components/TopBar/TopBar';
 import TestDialog from '../../dialogs/TestDialog/TestDialog';
-import Second from '../Second/Second';
+import SyncPage from '../SyncPage/SyncPage';
 import './Home.scss';
 
 export interface HomeProps
@@ -49,8 +49,13 @@ export default class Home extends BaseScene<HomeProps, HomeState>
             <div className="content">
                 <div className="title">这是首个模块儿</div>
                 <div className="button" onClick={()=>{
-                    pushRoute(Second);
-                }}>测试模块跳转</div>
+                    // 直接传入模块引用即可实现静态模块儿跳转
+                    pushRoute(SyncPage);
+                }}>测试同步模块跳转</div>
+                <div className="button" onClick={()=>{
+                    // 传入动态import即可进行异步模块儿跳转
+                    pushRoute(import("../AsyncPage/AsyncPage"));
+                }}>测试异步模块跳转</div>
             </div>
         </div>;
     }

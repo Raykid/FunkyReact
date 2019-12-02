@@ -121,10 +121,5 @@ module.exports = {
             template: 'src/index.html',
             inject: true
         }),
-        new HtmlWebpackPlugin({
-            filename: 'index.vhtml',
-            template: 'src/index.html',
-            inject: true
-        }),
     ],
 }

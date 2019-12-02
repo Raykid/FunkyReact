@@ -20,6 +20,9 @@ export default class TestDialog extends Dialog
                     cancel.cancel();
                 });
             }}>测试Loading 3秒</div>
+            <div className="button" onClick={()=>{
+                window.open("./dist/report.html");
+            }}>看看打包报告</div>
             <div className="close-button" onClick={()=>{
                 this.close();
             }}>×</div>
