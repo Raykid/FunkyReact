@@ -59,7 +59,9 @@ function init(paramsDict)
 					// 更新库到可用的最新版本
 					npm.commands.update([], ()=>{
 						// 汇报状态
-						console.log("done.");
+						console.log("脚手架项目执行完毕");
+						console.log("运行本地调试请执行“npm run start”");
+						console.log("打包项目请执行“npm run build”");
 					});
 				});
 			});
