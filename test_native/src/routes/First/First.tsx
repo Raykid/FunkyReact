@@ -7,7 +7,7 @@ import { Inject } from 'funky-react/dist/mvc/Model';
 import { pushRoute } from 'funky-react/dist/router/ReactRouter';
 import React from 'react';
 import { SafeAreaView, StatusBar, Text, View } from 'react-native';
-import { createStyleSheet, ReactNodeVisitorWithKey, Style, wrapVisitor } from 'react-native-visitor';
+import { createStyleSheet, Style } from 'react-native-visitor';
 import TopBar from '../../components/TopBar/TopBar';
 import TestDialog from '../../dialogs/TestDialog/TestDialog';
 import Second from '../Second/Second';
@@ -20,30 +20,25 @@ export default class First extends BaseScene
 
     public render():React.ReactNode
     {
-        const visitor:ReactNodeVisitorWithKey = wrapVisitor()(
-            <SafeAreaView style={styles.root}>
-                <StatusBar hidden animated></StatusBar>
-                <TopBar title="第一个模块儿">
-                    <ButtonOpacity style={styles.root.testDialogButton} onPress={()=>{
-                        // 打开弹窗
-                        this._dialogModel.openDialog(TestDialog);
-                    }}>
-                        <Text style={styles.root.testDialogButton.text}>测试弹窗</Text>
-                    </ButtonOpacity>
-                </TopBar>
-                <View style={styles.root.contentContainer}>
-                    <Text style={styles.root.contentContainer.title}>这是第一个模块儿</Text>
-                    <ButtonOpacity style={styles.root.contentContainer.button} onPress={()=>{
-                        pushRoute(Second);
-                    }}>
-                        <Text key="btn" style={styles.root.contentContainer.button.text}>打开模块儿</Text>
-                    </ButtonOpacity>
-                </View>
-            </SafeAreaView>
-        );
-        // 这里用Visitor后期修改字号
-        visitor.btn.style.fontSize = getPixel(50);
-        return visitor.node;
+        return <SafeAreaView style={styles.root}>
+            <StatusBar hidden animated></StatusBar>
+            <TopBar title="第一个模块儿">
+                <ButtonOpacity style={styles.root.testDialogButton} onPress={()=>{
+                    // 打开弹窗
+                    this._dialogModel.openDialog(TestDialog);
+                }}>
+                    <Text style={styles.root.testDialogButton.text}>测试弹窗</Text>
+                </ButtonOpacity>
+            </TopBar>
+            <View style={styles.root.contentContainer}>
+                <Text style={styles.root.contentContainer.title}>这是第一个模块儿</Text>
+                <ButtonOpacity style={styles.root.contentContainer.button} onPress={()=>{
+                    pushRoute(Second);
+                }}>
+                    <Text style={styles.root.contentContainer.button.text}>打开模块儿</Text>
+                </ButtonOpacity>
+            </View>
+        </SafeAreaView>;
     }
 }
 
@@ -77,10 +72,11 @@ const styles = createStyleSheet({
     
             button: {
                 backgroundColor: "red",
+                borderRadius: getPixel(50),
                 padding: getPixel(20),
     
                 text: {
-                    fontSize: getPixel(24),
+                    fontSize: getPixel(36),
                     color: "white",
                 } as Style,
             } as Style,

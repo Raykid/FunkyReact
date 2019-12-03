@@ -6,7 +6,7 @@ import { Inject } from 'funky-react/dist/mvc/Model';
 import { popRoute } from 'funky-react/dist/router/ReactRouter';
 import React from 'react';
 import { SafeAreaView, StatusBar, Text, View } from 'react-native';
-import { createStyleSheet, Style } from 'react-native-visitor';
+import { appendStyles, createStyleSheet, ReactNodeVisitorWithKey, Style, wrapVisitor } from 'react-native-visitor';
 import TopBar from '../../components/TopBar/TopBar';
 import PromptModel from '../../models/PromptModel';
 
@@ -23,7 +23,7 @@ export default class Second extends BaseScene
     
     public render():React.ReactNode
     {
-        return <SafeAreaView style={styles.root}>
+        const visitor:ReactNodeVisitorWithKey = wrapVisitor()(<SafeAreaView style={styles.root}>
             <StatusBar hidden animated></StatusBar>
             <TopBar title="第二个模块儿"/>
             <View style={styles.root.contentContainer}>
@@ -31,10 +31,18 @@ export default class Second extends BaseScene
                 <ButtonOpacity style={styles.root.contentContainer.button} onPress={()=>{
                     this._promptModel.confirm("要回到首模块吗？", "这是Confirm", ()=>popRoute());
                 }}>
-                    <Text style={styles.root.contentContainer.button.text}>回去</Text>
+                    <Text key="btn" style={styles.root.contentContainer.button.text}>回去</Text>
                 </ButtonOpacity>
             </View>
-        </SafeAreaView>;
+        </SafeAreaView>);
+        // 这里用Visitor后期修改按钮文本和样式
+        visitor.btn.children = "你看到的是使用ReactNativeVisitor修改后的显示";
+        appendStyles(visitor.btn, {
+            fontSize: getPixel(40),
+            textAlign: "center",
+        });
+        // 返回结果
+        return visitor.node;
     }
 }
 
@@ -55,6 +63,7 @@ const styles = createStyleSheet({
 
             button: {
                 backgroundColor: "green",
+                borderRadius: getPixel(20),
                 padding: getPixel(20),
 
                 text: {
