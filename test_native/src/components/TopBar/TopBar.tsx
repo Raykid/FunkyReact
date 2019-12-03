@@ -64,7 +64,9 @@ const styles = createStyleSheet({
     topBar: {
         position: "relative",
         width: "100%",
-        height: getPixel(80),
+        height: getPixel(100),
+        borderBottomWidth: getPixel(2),
+        borderBottomColor: "grey",
 
         backButton: {
             width: getPixel(100),
