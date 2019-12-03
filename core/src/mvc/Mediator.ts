@@ -156,7 +156,7 @@ export default class Mediator<P = {}, S = {}, SS = any> extends React.Component<
                         {
                             this._cancelables.splice(index, 1);
                         }
-                    })
+                    });
                 }
             }
         }
