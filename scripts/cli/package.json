@@ -29,7 +29,6 @@
   },
   "homepage": "https://github.com/Raykid/FunkyReact#readme",
   "dependencies": {
-    "copy": "^0.3.2",
     "npm": "^6.13.1"
   }
 }
