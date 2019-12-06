@@ -1,4 +1,5 @@
 const path = require("path");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 const { recurseDirFiles } = require("../../utils/TraverseUtil");
 
@@ -42,6 +43,10 @@ module.exports = {
     },
 
     plugins: [
+        new CopyWebpackPlugin([{
+            from: path.resolve(SRC_PATH, "libs"),
+            to: path.resolve(DIST_PATH, "libs"),
+        }]),
         new BundleAnalyzerPlugin({
             analyzerMode: "static",
             openAnalyzer: false

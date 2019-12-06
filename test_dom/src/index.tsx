@@ -1,3 +1,5 @@
+/// <reference types="funky-react"/>
+
 import { reactBundle } from 'funky-react-dom/dist/ReactBundleDOM';
 import App from 'funky-react/dist/mvc/App';
 import React from 'react';
