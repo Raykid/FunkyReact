@@ -1,3 +1,5 @@
+/// <reference types="funky-react"/>
+/// <reference types="funky-react-native"/>
 /// <reference path="./types.d.ts"/>
 
 import { reactBundle } from 'funky-react-native/dist/ReactBundleNative';
