@@ -1,4 +1,6 @@
 
+/// <reference types="funky-react"/>
+/// <reference types="funky-react-dom"/>
 /// <reference path="./types.d.ts"/>
 
 import { reactBundle } from 'funky-react-dom/dist/ReactBundleDOM';
