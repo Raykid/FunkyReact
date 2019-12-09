@@ -73,6 +73,18 @@ function init(paramsDict)
 	const distDir = process.cwd();
 	// 拷贝所有文件
 	copy(srcDir, distDir, false);
+	// 如果存在.npmignore文件，则改名为.gitignore
+	const npmignorePath = path.join(distDir, "./.npmignore");
+	if(fs.existsSync(npmignorePath))
+	{
+		// 生成.gitignore文件
+		const str = fs.readFileSync(npmignorePath);
+		fs.writeFileSync(path.join(distDir, "./.gitignore"), str);
+		// 移除.npmignore文件
+		fs.unlinkSync(npmignorePath);
+		// 告知用户
+		console.log("已将.npmignore文件改名为.gitignore");
+	}
 	// 安装依赖库
 	npm.load((err, result)=>{
 		npm.commands.install(distDir, [], ()=>{
