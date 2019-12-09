@@ -1,22 +1,27 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require("path");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
+const { recurseDirFiles } = require("../../../utils/TraverseUtil");
 
+const SRC_PATH = path.resolve(__dirname, "../src");
+const DIST_PATH = path.resolve(__dirname, "../dist");
 
-const SRC_PATH = path.resolve(__dirname, '');
-const DIST_PATH = path.resolve(__dirname, '');
+module.exports = {
+    mode: "production",
 
-exports.default = {
     entry: {
-        'app': `${SRC_PATH}/src/index.tsx`,
+        "funky-react-dom.min.umd": recurseDirFiles(SRC_PATH).filter(path=>{
+            return !/d\.ts$/.test(path);
+        }),
     },
 
     output: {
         path: DIST_PATH,
-        filename: 'index.js',
+        filename: "[name].js",
     },
 
     resolve: {
-        extensions: ['.ts', '.js', '.tsx', '.jsx'],
+        extensions: [".ts", ".js", ".tsx", ".jsx"],
     },
 
     module: {
@@ -33,14 +38,6 @@ exports.default = {
                         }
                     }
                 ],
-            },
-            {
-                test: /\.html?$/,
-                loader: 'html-loader',
-                options: {
-                    attrs: ['img:src', 'link:href'],
-                    removeComments: true
-                }
             },
             {
                 test: /\.s?css$/,
@@ -66,29 +63,18 @@ exports.default = {
                     }
                 ]
             },
-            {
-                test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-                loader: 'url-loader',
-            },
-            {
-                test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
-                loader: 'url-loader',
-                options: {
-                    name: 'assets/[name]-[hash:10].[ext]',
-                    limit: 81920,
-                },
-            }
         ],
     },
 
     plugins: [
-        new HtmlWebpackPlugin({
-            filename: 'index.html',
-            template: 'src/index.html',
-            inject: true
+        new CopyWebpackPlugin([{
+            from: path.resolve(SRC_PATH, "**/*.scss"),
+            to: DIST_PATH,
+            context: "src",
+        }]),
+        new BundleAnalyzerPlugin({
+            analyzerMode: "static",
+            openAnalyzer: false
         }),
     ],
-
-    devtool: 'inline-source-map',
-
-}
+};

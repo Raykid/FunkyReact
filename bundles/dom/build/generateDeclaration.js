@@ -1,6 +1,6 @@
 const path = require("path");
 const fs = require("fs");
-const { recurseDirFiles } = require("../../utils/TraverseUtil");
+const { recurseDirFiles } = require("../../../utils/TraverseUtil");
 
 const DIST_PATH = path.resolve(__dirname, "../dist");
 

@@ -5,7 +5,7 @@ import { Action, createMemoryHistory, History, Location } from 'history';
 import React from 'react';
 import AnimatedRouter from 'react-animated-router';
 import { Redirect, Route, RouteComponentProps, RouteProps, Router, Switch } from 'react-router';
-import './ReactBundleDOM.scss';
+import './global/global.scss';
 
 type ComponentType = React.ComponentType<RouteComponentProps<any>> | React.ComponentType<any>;
 function wrapRouteComponent(component:ComponentType):ComponentType

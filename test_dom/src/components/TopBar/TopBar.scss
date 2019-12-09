@@ -1,0 +1,33 @@
+$topBarHeight: 2rem;
+
+.top-bar {
+    position: relative;
+    width: 100%;
+    height: $topBarHeight - 0.07rem;
+    background-color: #eeeeee;
+    border-bottom: solid 0.07rem grey;
+
+    .title {
+        position: absolute;
+        width: 100%;
+        height: $topBarHeight - 0.07rem;
+        line-height: $topBarHeight - 0.07rem;
+        text-align: center;
+        font-size: 1rem;
+    }
+
+    .children-container {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+
+    .back-button {
+        position: absolute;
+        width: 1.2rem;
+        height: 0.8rem;
+        background-image: url(./assets/back.png);
+        background-size: contain;
+        margin: 0.6rem;
+    }
+}

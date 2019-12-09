@@ -30,7 +30,7 @@
     "webpack-merge": "^4.2.2"
   },
   "dependencies": {
-    "funky-react": "^1.0.2",
-    "funky-react-dom": "^1.0.1"
+    "funky-react": "^1.0.7",
+    "funky-react-dom": "^1.0.4"
   }
 }

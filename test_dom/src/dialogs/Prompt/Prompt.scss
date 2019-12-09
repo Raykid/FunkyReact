@@ -1,0 +1,54 @@
+.prompt-dialog {
+    position: absolute;
+    width: 20rem;
+    height: 12.36rem;
+    left: calc(50% - 20rem / 2);
+    top: calc(50% - 12.36rem / 2);
+    background-color: white;
+    border-radius: 1.36rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+
+    .title {
+        font-size: 1.28rem;
+        font-weight: bold;
+        color: #4D4D4D;
+        margin-top: 1rem;
+    }
+
+    .content {
+        font-size: 1rem;
+        font-weight: 500;
+        color: #4D4D4D;
+        margin: 0 1rem;
+    }
+
+    .button-container {
+        width: 100%;
+        display: flex;
+
+        .button {
+            flex: 1;
+            font-size: 1.28rem;
+            color: #A0A0A0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 3.64rem;
+            border-width: 0.07rem;
+            border-color: #F0F0F4;
+            cursor: pointer;
+            
+            &.normal {
+
+            }
+
+            &.important {
+                color: #12B7F5;
+            }
+        }
+    }
+}
