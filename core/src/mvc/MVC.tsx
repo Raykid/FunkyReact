@@ -3,11 +3,25 @@ import '../libs/Reflect';
 
 export interface MVC
 {
+    storePromise:Promise<Store>;
     store:Store;
 }
 
+let store:Store;
+let storePromiseResolve:(store:Store)=>void;
 export const mvc:MVC = {
-    store: null,
+    storePromise: new Promise(resolve=>{
+        storePromiseResolve = resolve;
+    }),
+    get store():Store
+    {
+        return store;
+    },
+    set store(value:Store)
+    {
+        store = value;
+        storePromiseResolve(value);
+    },
 };
 
 export interface IApp

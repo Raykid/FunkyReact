@@ -3,6 +3,36 @@ import Dictionary from '../utils/Dictionary';
 import { getObjectHash } from '../utils/ObjectUtil';
 import { mvc } from './MVC';
 
+export interface InjectOptions
+{
+    /**
+     * 指明是否在依赖的Model初始化时自动初始化该被依赖的Model
+     *
+     * @type {boolean}
+     * @memberof InjectOptions
+     */
+    initialize?:boolean;
+}
+
+interface InjectData
+{
+    /**
+     * 注入的Model
+     *
+     * @type {Model}
+     * @memberof InjectData
+     */
+    model:Model;
+
+    /**
+     * 注入的选项
+     *
+     * @type {InjectOptions}
+     * @memberof InjectData
+     */
+    options?:InjectOptions;
+}
+
 /**
  * 数据模型基类
  *
@@ -12,6 +42,8 @@ import { mvc } from './MVC';
  */
 export default abstract class Model<S = any>
 {
+    private __injectDatas:InjectData[];
+
     /**
      * 获取当前Model维护的只读state
      *
@@ -25,7 +57,60 @@ export default abstract class Model<S = any>
         return mvc.store.getState()[name];
     }
 
-    public initialize():void
+    private _initialized:boolean = false;
+    /**
+     * 获取是否初始化完毕
+     *
+     * @readonly
+     * @type {boolean}
+     * @memberof Model
+     */
+    public get initialized():boolean
+    {
+        return this._initialized;
+    }
+
+    private _initializedPromise:Promise<void>;
+    public initialize():Promise<void>
+    {
+        if(!this._initializedPromise)
+        {
+            this._initializedPromise = new Promise(async (resolve, reject)=>{
+                // 先等待store
+                await mvc.storePromise;
+                // 再等待所有依赖的Model初始化完毕
+                if(this.__injectDatas)
+                {
+                    await Promise.all(
+                        this.__injectDatas
+                        .filter(data=>{
+                            return data.options == null || data.options.initialize !== false;
+                        })
+                        .map(data=>data.model.initialize())
+                    );
+                }
+                // 调用模板方法
+                try
+                {
+                    await this.onInitialize();
+                    // 更新状态
+                    this._initialized = true;
+                    // 结束
+                    resolve();
+                }
+                catch(err)
+                {
+                    console.error(`Model[ ${this.constructor.name} ]初始化失败`, err.toString());
+                    // 拒绝
+                    reject(err);
+                }
+            });
+        }
+        // 等待初始化完毕
+        return this._initializedPromise;
+    }
+
+    public onInitialize():void|Promise<void>
     {
         // 子类可重写，用于初始化数据模型
     }
@@ -107,6 +192,26 @@ export function ModelClass(cls:any):void
     modelDict.set(cls, model);
 }
 
+function doInject(prototype:any, propertyKey:string, options?:InjectOptions):void
+{
+    const cls:{new ():Model} = Reflect.getMetadata("design:type", prototype, propertyKey);
+    const model:Model = getInject(cls);
+    if(model)
+    {
+        prototype[propertyKey] = model;
+        // 添加依赖数据
+        if(!prototype.__injectDatas)
+        {
+            prototype.__injectDatas = [];
+        }
+        prototype.__injectDatas.push({
+            model,
+            options,
+        });
+    }
+}
+
+export function Inject(options?:InjectOptions):PropertyDecorator;
 /**
  * 依赖注入装饰器，可注入Model
  *
@@ -115,12 +220,20 @@ export function ModelClass(cls:any):void
  * @param {*} prototype
  * @param {string} propertyKey
  */
-export function Inject(prototype:any, propertyKey:string):void
+export function Inject(prototype:any, propertyKey:string):void;
+export function Inject(arg1?:any, arg2?:string):PropertyDecorator|void
 {
-    const cls:{new ():Model} = Reflect.getMetadata("design:type", prototype, propertyKey);
-    const model:Model = getInject(cls);
-    if(model)
+    if(typeof arg2 === "string")
     {
-        prototype[propertyKey] = model;
+        // 无参数
+        doInject(arg1, arg2);
+    }
+    else
+    {
+        // 有参数，arg1是options
+        return function(prototype:any, propertyKey:string):void
+        {
+            doInject(prototype, propertyKey, arg1);
+        };
     }
 }
